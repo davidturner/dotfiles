@@ -1,0 +1,42 @@
+# File Navigation Goodness
+alias .="cd ~/"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias ll="ls -lahL"
+alias con="tail -40 -f /var/log/system.log"
+
+# Update Stuff
+alias update="echo 'Updating Oh My Zsh'; upgrade_oh_my_zsh;echo 'Updating System Gems';  gem update --system; echo 'Updating Installed Gems'; gem update; echo 'Updating Brew'; brew update; echo 'Upgrading Brew'; brew upgrade; echo 'Brew Cleanup'; brew cleanup; echo 'Updating NPM Globally'; npm update npm -g; echo 'Updating NPM Globally installed files'; npm update -g; echo 'Updating Composer'; composer self-update;"
+
+# Apache Stuff
+alias apachelog="tail -f /private/var/log/apache2/error_log"
+alias apacherestart="sudo apachectl -k restart"
+alias apachestop="sudo apachectl -k stop"
+alias apachestart="sudo apachectl -k start"
+
+# Fix Open With
+alias openwithcleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# Purge .DS_Store
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume 7'"
+
+# Faster npm for Europeans
+command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
+
+# Force run command
+alias please=sudo

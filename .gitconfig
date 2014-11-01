@@ -1,0 +1,5 @@
+[user]
+	name = David Turner
+	email = david@davidturner.name
+[push]
+	default = simple
