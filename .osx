@@ -221,8 +221,6 @@ send_notification "Initial configuration of OS X Settings Complete" "OS X Config
 # Putting Aliases in Place
 #
 
-echo 'Setting up Aliases'
-
 sudo rm -rf ~/.aliases
 ln -s ~/.dotfiles/.aliases ~/.aliases
 
@@ -300,12 +298,14 @@ fi
 
 eval "$(rbenv init -)"
 
-if test ! $(which sass); then
+if test ! $(which jekyll); then
   echo 'Installing Sass'
-  gem install sass jekyll
+  gem install jekyll
+
+  gem update
+  send_notification "Ruby Gems have been installed and updated on this machine." "Ruby Gems Installed/Updated"
 fi
-gem update
-send_notification "Ruby Gems have been installed and updated on this machine." "Ruby Gems Installed/Updated"
+
 
 if [ $(which php) != "/usr/local/php5/bin/php" ]; then
   curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
