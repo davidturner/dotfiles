@@ -28,11 +28,17 @@ done;
 # fi
 
 source $ZSH/oh-my-zsh.sh
+# source $ZSH//zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-export PATH=/usr/local/php5/bin:$PATH
-export PATH=$HOME/.node_modules/bin:$PATH
+PATH=/usr/bin
+PATH=/usr/local/bin:$PATH
+PATH=/bin:$PATH
+PATH=/usr/sbin:$PATH
+PATH=/sbin:$PATH
+PATH=/usr/local/php5/bin:$PATH
+PATH=$HOME/.node_modules/bin:$PATH
+PATH=$HOME/.rbenv/bin:$PATH
 include_path=".:/usr/local/php/pear/"
-export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH=$HOME/.composer/vendor/bin:$PATH
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 eval "$(rbenv init -)"
