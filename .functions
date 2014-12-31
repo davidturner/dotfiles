@@ -68,3 +68,7 @@ function start_agent {
   . "${SSH_ENV}" > /dev/null
   /usr/bin/ssh-add
 }
+
+function send_notification() {
+  osascript -e "display notification \"$1\" with title \"$2\"" &>/dev/null
+}
