@@ -356,7 +356,7 @@ prompt_rbenv() {
   fi
 
   if which rbenv &> /dev/null; then
-    prompt_segment $BULLETTRAIN_RBENV_BG $BULLETTRAIN_RBENV_FG $BULLETTRAIN_RBENV_PREFIX"  $(rbenv version|cut -f1 -d" ")"
+    prompt_segment $BULLETTRAIN_RBENV_BG $BULLETTRAIN_RBENV_FG $BULLETTRAIN_RBENV_PREFIX"$(rbenv version|cut -f1 -d" ")"
   fi
 }
 
