@@ -280,7 +280,7 @@ echo 'PHP 5.4 Installed'
 
 # TODO: See about installing NVM here via HomeBrew
 
-curl https://raw.githubusercontent.com/creationix/nvm/v0.22.0/install.sh | bash
+git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags` && git checkout master
 nvm install stable
 nvm use stable
 nvm alias default stable
