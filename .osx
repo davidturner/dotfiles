@@ -278,6 +278,8 @@ echo 'Installing PHP 5.4'
 curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
 echo 'PHP 5.4 Installed'
 
+# TODO: See about installing NVM here via HomeBrew
+
 #
 # Putting Aliases in Place
 #
@@ -324,5 +326,5 @@ echo "Setup Complete. Please restart to ensure all shinies are installed."
 echo "You will still need to do some manuall installation. In particular NPM and Grunt need to be setup."
 echo "Please also ensure that your .bash_profile/.zshrc only export the PATH variable once. This should be the last instance of the PATH variable."
 
-open http://nodejs.org/download/
-open http://gruntjs.com/getting-started
+# open http://nodejs.org/download/
+# open http://gruntjs.com/getting-started
