@@ -4,11 +4,23 @@ ZSH=$HOME/.oh-my-zsh
 
 SSH_ENV=$HOME/.ssh/environment
 
+BULLETTRAIN_DIR_BG=088
+# BULLETTRAIN_PROMPT_CHAR="►"
+# BULLETTRAIN_PROMPT_CHAR="▹"
+# BULLETTRAIN_PROMPT_CHAR="└"
+BULLETTRAIN_PROMPT_CHAR="↳"
+# BULLETTRAIN_PROMPT_CHAR="⤷"
+BULLETTRAIN_TIME_BG=250
+BULLETTRAIN_TIME_FG=232
+BULLETTRAIN_GIT_BG=$BULLETTRAIN_TIME_BG
+BULLETTRAIN_GIT_FG=$BULLETTRAIN_TIME_FG
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="darkblood-dave"
+# ZSH_THEME="darkblood-dave"
+ZSH_THEME="bullet-train"
 
-plugins=(git)
+plugins=(git brew osx sublime rbenv composer common-aliases compleat laravel4 vagrant web-search)
