@@ -84,6 +84,20 @@ if [ ! -n "${BULLETTRAIN_RVM_PREFIX+1}" ]; then
   BULLETTRAIN_RVM_PREFIX=♦️
 fi
 
+# RBENV
+if [ ! -n "${BULLETTRAIN_RBENV_SHOW+1}" ]; then
+  BULLETTRAIN_RBENV_SHOW=true
+fi
+if [ ! -n "${BULLETTRAIN_RBENV_BG+1}" ]; then
+  BULLETTRAIN_RBENV_BG=$BULLETTRAIN_RVM_BG
+fi
+if [ ! -n "${BULLETTRAIN_RBENV_FG+1}" ]; then
+  BULLETTRAIN_RBENV_FG=$BULLETTRAIN_RVM_FG
+fi
+if [ ! -n "${BULLETTRAIN_RBENV_PREFIX+1}" ]; then
+  BULLETTRAIN_RBENV_PREFIX=♦️
+fi
+
 # DIR
 if [ ! -n "${BULLETTRAIN_DIR_SHOW+1}" ]; then
   BULLETTRAIN_DIR_SHOW=true
@@ -337,12 +351,12 @@ prompt_rvm() {
 
 # RBENV: only shows RVM info if on a gemset that is not the default one
 prompt_rbenv() {
-  if [[ $BULLETTRAIN_RVM_SHOW == false ]] then
+  if [[ $BULLETTRAIN_RBENV_SHOW == false ]] then
     return
   fi
 
   if which rbenv &> /dev/null; then
-    prompt_segment $BULLETTRAIN_RVM_BG $BULLETTRAIN_RVM_FG $BULLETTRAIN_RVM_PREFIX"  $(rbenv -v)"
+    prompt_segment $BULLETTRAIN_RBENV_BG $BULLETTRAIN_RBENV_FG $BULLETTRAIN_RBENV_PREFIX"  $(rbenv version|cut -f1 -d" ")"
   fi
 }
 
