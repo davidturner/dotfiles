@@ -280,6 +280,12 @@ echo 'PHP 5.4 Installed'
 
 # TODO: See about installing NVM here via HomeBrew
 
+curl https://raw.githubusercontent.com/creationix/nvm/v0.22.0/install.sh | bash
+nvm install stable
+nvm use stable
+nvm alias default stable
+npm install --global gulp
+
 #
 # Putting Aliases in Place
 #
@@ -315,6 +321,9 @@ ln -s ~/.dotfiles/.zlogin ~/.zlogin
 
 sudo rm -rf ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
+
+sudo rm -rf ~/.nvmrc
+ln -s ~/.dotfiles/.nvmrc ~/.nvmrc
 
 echo 'Aliases set up'
 
