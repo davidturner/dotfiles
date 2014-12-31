@@ -307,7 +307,7 @@ fi
 gem update
 send_notification "Ruby Gems have been installed and updated on this machine." "Ruby Gems Installed/Updated"
 
-if [ $(which php) != $(which php) ]; then
+if [ $(which php) != "/usr/local/php5/bin/php" ]; then
   curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
   send_notification "PHP 5.4 has been installed on your Mac." "PHP 5.4 Installed"
 fi
