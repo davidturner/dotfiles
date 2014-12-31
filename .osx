@@ -292,34 +292,34 @@ echo 'PHP 5.4 Installed'
 echo 'Setting up Aliases'
 
 sudo rm -rf ~/.aliases
-ln -s ~/Dropbox/Apps/DotFiles/.aliases ~/.aliases
+ln -s ~/.dotfiles/.aliases ~/.aliases
 
 sudo rm -rf ~/.editorconfig
-ln -s ~/Dropbox/Apps/DotFiles/.editorconfig ~/.editorconfig
+ln -s ~/.dotfiles/.editorconfig ~/.editorconfig
 
 sudo rm -rf ~/.functions
-ln -s ~/Dropbox/Apps/DotFiles/.functions ~/.functions
+ln -s ~/.dotfiles/.functions ~/.functions
 
 sudo rm -rf ~/.gemrc
-ln -s ~/Dropbox/Apps/DotFiles/.gemrc ~/.gemrc
+ln -s ~/.dotfiles/.gemrc ~/.gemrc
 
 sudo rm -rf ~/.gitconfig
-ln -s ~/Dropbox/Apps/DotFiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 
 sudo rm -rf ~/.gitignore
-ln -s ~/Dropbox/Apps/DotFiles/.gitignore ~/.gitignore
+ln -s ~/.dotfiles/.gitignore ~/.gitignore
 
 sudo rm -rf ~/.npmrc
-ln -s ~/Dropbox/Apps/DotFiles/.npmrc ~/.npmrc
+ln -s ~/.dotfiles/.npmrc ~/.npmrc
 
 sudo rm -rf ~/.variables
-ln -s ~/Dropbox/Apps/DotFiles/.variables ~/.variables
+ln -s ~/.dotfiles/.variables ~/.variables
 
 sudo rm -rf ~/.zlogin
-ln -s ~/Dropbox/Apps/DotFiles/.zlogin ~/.zlogin
+ln -s ~/.dotfiles/.zlogin ~/.zlogin
 
 sudo rm -rf ~/.zshrc
-ln -s ~/Dropbox/Apps/DotFiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
 echo 'Aliases set up'
 
