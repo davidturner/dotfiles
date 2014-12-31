@@ -72,3 +72,13 @@ function start_agent {
 function send_notification() {
   osascript -e "display notification \"$1\" with title \"$2\"" &>/dev/null
 }
+
+#
+# This is a Private Repo that you won't be able to access unless you've been given permission to do so.
+#
+
+function gulpinvited () {
+  git clone git@bitbucket.org:KrooKedUK/gulp-gi.git "$1"
+  cd $1
+  npm install
+}
