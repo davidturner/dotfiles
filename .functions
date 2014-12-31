@@ -81,5 +81,8 @@ function gulpinvited () {
   git clone git@bitbucket.org:KrooKedUK/gulp-gi.git "$1"
   cd $1
   ln -s $GICORE build/scss/core
+  rm -rf .git
+  git init
   npm install
+  gulp
 }
