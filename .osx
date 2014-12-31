@@ -262,6 +262,8 @@ send_notification "Aliases of all of the files that I need have been put in plac
 # Configuring Environment
 #
 
+touch ~/.hushlogin
+
 if test ! $(which brew); then
   echo "Installing homebrew…"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
