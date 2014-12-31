@@ -13,6 +13,7 @@ include_path=".:/usr/local/php/pear/"
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 export NVM_DIR=~/.nvm
+export GICORE=~/Server/get-invited-core/scss/
 
 #
 # Load in NVM
