@@ -19,3 +19,13 @@ function gulpinvited () {
   npm install
   gulp
 }
+
+function listappstoreapps() {
+  if [ -z "$1" ]
+  then
+    find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##'
+  else
+    find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##' > ~/Desktop/$1.md
+    send_notification "List of Mac App Store apps saves to the desktop." "App Store Apps"
+  fi
+}
