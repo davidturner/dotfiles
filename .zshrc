@@ -16,6 +16,7 @@ export PATH=$PATH
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 export NVM_DIR=~/.nvm
 export GICORE=~/Server/get-invited-core/scss/
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 #
 # Load in NVM
