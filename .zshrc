@@ -9,8 +9,10 @@ PATH=/usr/sbin:$PATH
 PATH=/sbin:$PATH
 PATH=/usr/local/php5/bin:$PATH
 PATH=$HOME/.rbenv/bin:$PATH
+PATH=$HOME/.node_modules/bin:$PATH
+PATH=$HOME/.composer/vendor/bin:$PATH
 include_path=".:/usr/local/php/pear/"
-export PATH=$HOME/.composer/vendor/bin:$PATH
+export PATH=$PATH
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 export NVM_DIR=~/.nvm
 export GICORE=~/Server/get-invited-core/scss/
@@ -33,11 +35,11 @@ eval "$(rbenv init -)"
 files=('aliases' 'functions' 'variables')
 
 for file in $files; do
-    if [ -f ~/."$file" ]; then
-        source ~/."$file"
-    else
-        print "404: ~/."$file" not found."
-    fi
+  if [ -f ~/."$file" ]; then
+    source ~/."$file"
+  else
+    print "404: ~/."$file" not found."
+  fi
 done;
 
 #
