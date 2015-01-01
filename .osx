@@ -262,41 +262,47 @@ send_notification "Aliases of all of the files that I need have been put in plac
 
 touch ~/.hushlogin
 
+#
+# Install homebrew
+# Install git
+# Install ruby
+#
+
 if test ! $(which brew); then
-  echo "Installing homebrew…"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew update
   brew tap homebrew/dupes
-  brew install coreutils bash homebrew/dupes/grep giy
-  brew cleanup
-  send_notification "Homebrew has been installed. You can now install all the things." "Homebrew Installed"
-fi
-
-if test ! $(which zsh); then
-  echo 'Installing zsh'
-  curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-  send_notification "Oh My ZSH has been installed on this Mac." "Oh My ZSH Installed"
-  if [ -d "~/.oh-my-zsh/custom/themes" ]
-  then
-  else
-      mkdir ~/.oh-my-zsh/custom/themes
-  fi
-  sudo rm -rf ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
-  ln -s ~/.dotfiles/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
-fi
-
-
-if test ! $(which ruby); then
-  brew install rbenv ruby-build
+  brew update
+  brew install coreutils bash git rbenv ruby-build homebrew/dupes/grep
 
   rbenv init
   rbenv install 2.1.5
   rbenv global 2.1.5
 
-  send_notification "rbenv and ruby 2.1.5 have now been installed." "rbenv and latest ruby installed"
+  brew cleanup
+  send_notification "Core Utilities, git, and ruby are now installed" "Homebrew Installed"
 fi
 
 eval "$(rbenv init -)"
+
+#
+# Install ZSH
+#
+
+if test ! $(which zsh); then
+  curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+  send_notification "Oh My ZSH has been installed on this Mac." "Oh My ZSH Installed"
+  if [ -d "~/.oh-my-zsh/custom/themes" ]
+  then
+  else
+    mkdir ~/.oh-my-zsh/custom/themes
+  fi
+  sudo rm -rf ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
+  ln -s ~/.dotfiles/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
+fi
+
+#
+# Install jekyll
+#
 
 if test ! $(which jekyll); then
   echo 'Installing Sass'
@@ -306,6 +312,9 @@ if test ! $(which jekyll); then
   send_notification "Ruby Gems have been installed and updated on this machine." "Ruby Gems Installed/Updated"
 fi
 
+#
+# Install PHP 5.4
+#
 
 if [ $(which php) != "/usr/local/php5/bin/php" ]; then
   curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
