@@ -26,6 +26,16 @@ function listappstoreapps() {
     find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##'
   else
     find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##' > ~/Desktop/$1.md
-    send_notification "List of Mac App Store apps saves to the desktop." "App Store Apps"
+    send_notification "List of installed Mac App Store apps saved to the desktop." "Installed App Store Apps"
+  fi
+}
+
+function listapps() {
+  if [ -z "$1" ]
+  then
+    ls /Applications/
+  else
+    ls /Applications/ > ~/Desktop/$1.md
+    send_notification "List of instaler apps saved to the desktop." "Installed Apps"
   fi
 }
