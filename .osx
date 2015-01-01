@@ -209,14 +209,6 @@ defaults write -g ApplePersistence -bool no
 # echo 'Disabling Time Machine hassling you each time you plug in a new external drive'
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-# echo 'Restarting affected apps'
-for app in "Dock" "Finder" "Mail" \
-        "Messages" "SystemUIServer" "Terminal" \
-        ; do
-        killall "${app}" > /dev/null 2>&1
-done
-send_notification "Initial configuration of OS X Settings Complete" "OS X Configuration Complete"
-
 #
 # Putting Aliases in Place
 #
@@ -253,6 +245,11 @@ ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
 sudo rm -rf ~/.nvmrc
 ln -s ~/.dotfiles/.nvmrc ~/.nvmrc
+
+sudo rm -rf ~/Library/Preferences/com.googlecode.iterm2.plist
+ln -s ~/.dotfiles/Settings/iTerm/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+defaults read com.googlecode.iterm2
+killall cfprefsd
 
 send_notification "Aliases of all of the files that I need have been put in place." "OS X Aliases setup"
 
@@ -334,4 +331,11 @@ if test ! $(which nvm); then
   npm install --global gulp
 fi
 
-send_notification "Please restart terminal to ensure all shinies are installed." "Setup Complete"
+send_notification "Quitting all affected apps, including iTerm and Terminal." "Setup Complete"
+
+# echo 'Restarting affected apps'
+for app in "Dock" "Finder" "Mail" \
+        "Messages" "SystemUIServer" "Terminal" 'iTerm' \
+        ; do
+        killall "${app}" > /dev/null 2>&1
+done
