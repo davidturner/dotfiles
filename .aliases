@@ -10,7 +10,7 @@ alias con="tail -40 -f /var/log/system.log"
 
 # Update Stuff
 alias brewupdate="brew update && brew upgrade && brew cleanup && brew prune && brew doctor"
-alias update="upgrade_oh_my_zsh; echo 'Updating System Gems'; gem update --system; gem update; echo 'Updating Brew'; brew update; echo 'Upgrading Brew'; brew upgrade; echo 'Brew Cleanup'; brew cleanup; brew prune; brew doctor; echo 'Updating NPM Globally'; npm update npm -g; echo 'Updating NPM Globally installed files'; npm update -g; echo 'Updating Composer'; composer self-update;"
+alias update="upgrade_oh_my_zsh; gem update --system; gem update; brew update; brew upgrade; brew cleanup; brew prune; brew doctor; npm update npm -g; npm update -g; composer self-update;"
 
 # Apache Stuff
 alias apachelog="tail -f /private/var/log/apache2/error_log"
