@@ -288,11 +288,7 @@ eval "$(rbenv init -)"
 if test ! $(which zsh); then
   curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
   send_notification "Oh My ZSH has been installed on this Mac." "Oh My ZSH Installed"
-  if [ -d "~/.oh-my-zsh/custom/themes" ]
-  then
-  else
-    mkdir ~/.oh-my-zsh/custom/themes
-  fi
+  mkdir ~/.oh-my-zsh/custom/themes
   sudo rm -rf ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
   ln -s ~/.dotfiles/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
 fi
