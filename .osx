@@ -5,6 +5,46 @@
 # Ask for the administrator password upfront
 sudo -v
 
+#
+# Putting Aliases in Place
+#
+
+sudo rm -rf ~/.aliases
+ln -s ~/.dotfiles/.aliases ~/.aliases
+source ~/.aliases
+
+sudo rm -rf ~/.editorconfig
+ln -s ~/.dotfiles/.editorconfig ~/.editorconfig
+
+sudo rm -rf ~/.functions
+ln -s ~/.dotfiles/.functions ~/.functions
+source ~/.functions
+
+sudo rm -rf ~/.gemrc
+ln -s ~/.dotfiles/.gemrc ~/.gemrc
+
+sudo rm -rf ~/.gitconfig
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+
+sudo rm -rf ~/.gitignore
+ln -s ~/.dotfiles/.gitignore ~/.gitignore
+
+sudo rm -rf ~/.npmrc
+ln -s ~/.dotfiles/.npmrc ~/.npmrc
+
+sudo rm -rf ~/.variables
+ln -s ~/.dotfiles/.variables ~/.variables
+source ~/.variables
+
+sudo rm -rf ~/.zlogin
+ln -s ~/.dotfiles/.zlogin ~/.zlogin
+
+sudo rm -rf ~/.zshrc
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+
+sudo rm -rf ~/.nvmrc
+ln -s ~/.dotfiles/.nvmrc ~/.nvmrc
+
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
@@ -209,43 +249,6 @@ defaults write -g ApplePersistence -bool no
 # echo 'Disabling Time Machine hassling you each time you plug in a new external drive'
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-#
-# Putting Aliases in Place
-#
-
-sudo rm -rf ~/.aliases
-ln -s ~/.dotfiles/.aliases ~/.aliases
-
-sudo rm -rf ~/.editorconfig
-ln -s ~/.dotfiles/.editorconfig ~/.editorconfig
-
-sudo rm -rf ~/.functions
-ln -s ~/.dotfiles/.functions ~/.functions
-
-sudo rm -rf ~/.gemrc
-ln -s ~/.dotfiles/.gemrc ~/.gemrc
-
-sudo rm -rf ~/.gitconfig
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-
-sudo rm -rf ~/.gitignore
-ln -s ~/.dotfiles/.gitignore ~/.gitignore
-
-sudo rm -rf ~/.npmrc
-ln -s ~/.dotfiles/.npmrc ~/.npmrc
-
-sudo rm -rf ~/.variables
-ln -s ~/.dotfiles/.variables ~/.variables
-
-sudo rm -rf ~/.zlogin
-ln -s ~/.dotfiles/.zlogin ~/.zlogin
-
-sudo rm -rf ~/.zshrc
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-
-sudo rm -rf ~/.nvmrc
-ln -s ~/.dotfiles/.nvmrc ~/.nvmrc
-
 sudo rm -rf ~/Library/Preferences/com.googlecode.iterm2.plist
 ln -s ~/.dotfiles/Settings/iTerm/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 defaults read com.googlecode.iterm2
@@ -265,19 +268,17 @@ touch ~/.hushlogin
 # Install ruby
 #
 
-if test ! $(which brew); then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew tap homebrew/dupes
-  brew update
-  brew install coreutils bash git rbenv ruby-build homebrew/dupes/grep
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap homebrew/dupes
+brew update
+brew install coreutils bash git rbenv ruby-build homebrew/dupes/grep
 
-  rbenv init
-  rbenv install 2.1.5
-  rbenv global 2.1.5
+rbenv init
+rbenv install 2.1.5
+rbenv global 2.1.5
 
-  brew cleanup
-  send_notification "Core Utilities, git, and ruby are now installed" "Homebrew Installed"
-fi
+brew cleanup
+send_notification "Core Utilities, git, and ruby are now installed" "Homebrew Installed"
 
 eval "$(rbenv init -)"
 
@@ -285,47 +286,52 @@ eval "$(rbenv init -)"
 # Install ZSH
 #
 
-if test ! $(which zsh); then
-  curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-  send_notification "Oh My ZSH has been installed on this Mac." "Oh My ZSH Installed"
-  mkdir ~/.oh-my-zsh/custom/themes
-  sudo rm -rf ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
-  ln -s ~/.dotfiles/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
-fi
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+send_notification "Oh My ZSH has been installed on this Mac." "Oh My ZSH Installed"
+mkdir ~/.oh-my-zsh/custom/themes
+sudo rm -rf ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
+ln -s ~/.dotfiles/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
 
 #
 # Install jekyll
 #
 
-if test ! $(which jekyll); then
-  echo 'Installing Sass'
-  gem install jekyll
+echo 'Installing Sass'
+gem install jekyll
 
-  gem update
-  send_notification "Ruby Gems have been installed and updated on this machine." "Ruby Gems Installed/Updated"
-fi
+gem update
+send_notification "Ruby Gems have been installed and updated on this machine." "Ruby Gems Installed/Updated"
 
 #
 # Install PHP 5.4
 #
 
-if [ $(which php) != "/usr/local/php5/bin/php" ]; then
-  curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
-  send_notification "PHP 5.4 has been installed on your Mac." "PHP 5.4 Installed"
-fi
+curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
+send_notification "PHP 5.4 has been installed on your Mac." "PHP 5.4 Installed"
 
 #
 # NVM Setup
 #
 
-if test ! $(which nvm); then
-  send_notification "Installing NVM" "Installing NVM and the latest version of Node.js and Gulp.js"
-  git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags` && git checkout master
-  nvm install stable
-  nvm use stable
-  nvm alias default stable
-  npm install --global gulp
-fi
+
+send_notification "Installing NVM" "Installing NVM and the latest version of Node.js and Gulp.js"
+git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags` && git checkout master
+nvm install stable
+nvm use stable
+nvm alias default stable
+npm install --global gulp
+
+source ~/.aliases
+source ~/.editorconfig
+source ~/.functions
+source ~/.gemrc
+source ~/.gitconfig
+source ~/.gitignore
+source ~/.npmrc
+source ~/.variables
+source ~/.zlogin
+source ~/.zshrc
+source ~/.nvmrc
 
 send_notification "Quitting all affected apps, including iTerm and Terminal." "Setup Complete"
 
