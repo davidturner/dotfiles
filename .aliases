@@ -1,3 +1,8 @@
+if  [[ -e ~/.dotfiles/.localaliases ]]
+then
+  source ~/.dotfiles/.localaliases
+fi
+
 # File Navigation Goodness
 alias .="cd ~/"
 alias ..="cd .."
@@ -17,6 +22,8 @@ alias apachelog="tail -f /private/var/log/apache2/error_log"
 alias apacherestart="sudo apachectl -k restart"
 alias apachestop="sudo apachectl -k stop"
 alias apachestart="sudo apachectl -k start"
+
+alias centos="curl -L -o 'install.sh' https://gist.githubusercontent.com/davidturner/2837041a90d6e9eba6a5/raw/11500e88079003c5f25737584ab132e4bc0be118/install.sh && curl -L -o 'Vagrantfile' https://gist.githubusercontent.com/davidturner/9c0acaa95751fa796847/raw/4f4e660e33982b4e5c72c141a8a7073433bae55e/vagrantfile && vagrant up"
 
 # Fix Open With
 alias openwithcleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
