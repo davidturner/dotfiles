@@ -15,6 +15,7 @@ Thumbs.db
 
 # Sass Stuff
 .sass-cache
+.localaliases
 
 # NodeJS Stuff
 node_modules
