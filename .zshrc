@@ -2,24 +2,25 @@
 # Setting Paths
 #
 
-PATH=/usr/bin:$PATH
-PATH=/usr/local/bin:$PATH
-PATH=/bin:$PATH
-PATH=/usr/sbin:$PATH
-PATH=/sbin:$PATH
-PATH=/usr/local/php5/bin:$PATH
-PATH=$HOME/.rbenv/bin:$PATH
+# PATH=$HOME/.rbenv/bin:$PATH
 PATH=$HOME/.node_modules/bin:$PATH
 PATH=$HOME/.composer/vendor/bin:$PATH
-PATH=/usr/local/opt/rbenv/versions/2.1.5:$PATH
-PATH=/usr/local/opt/rbenv/versions/2.1.5/lib/ruby/gems/2.1.0:$PATH
-PATH=$HOME/.gem/ruby/2.1.0:$PATH
+PATH=/usr/local/sbin:$PATH
+PATH=/Users/davidturner/.gem/ruby/2.2.0:$PATH
+PATH=/usr/local/opt/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0:$PATH
+PATH=/usr/local/opt/rbenv/versions/2.2.3/bin:$PATH
+# PATH=/usr/local/opt/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems:$PATH
+# PATH=/usr/local/opt/rbenv/versions/2.2.3/lib/ruby:$PATH
+
 include_path=".:/usr/local/php/pear/"
 export PATH=$PATH
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 export NVM_DIR=~/.nvm
 export GICORE=~/Server/get-invited-core/scss/
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# export GEM_PATH=/usr/local/opt/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/
+
+# echo $PATH
 
 #
 # Load in NVM
@@ -51,3 +52,4 @@ done;
 #
 
 source $ZSH/oh-my-zsh.sh
+eval $(thefuck --alias)
