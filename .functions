@@ -20,6 +20,30 @@ function gulpinvited () {
   gulp
 }
 
+function makepdf () {
+  length=$(last | find . -name "$1.html" -exec grep -i 'GET-[0-9*]' {} \;)
+  length=${${length/<p>/}}
+  length=${${length/<\/p>/}}
+  length=${${length/ /}}
+  #length=$length | sed '/^$/d;s/[[:blank:]]//g'
+  length=${length//[[:blank:]]/}
+  wkhtmltopdf --margin-bottom 0 --margin-top 0 --margin-left 0 --margin-right 0 --quiet $1.html $length.pdf
+  echo "Invoice $length has been saved."
+}
+
+function makeminute () {
+  wkhtmltopdf --margin-bottom 0 --margin-top 0 --margin-left 0 --margin-right 0 --quiet $1.html $1.pdf
+  echo "$i has been saved."
+}
+
+function makepdfs () {
+  for FILE in *.html; do makepdf ${${FILE/.html/}}; done
+}
+
+function makeminutes () {
+  for FILE in *.html; do makeminute ${${FILE/.html/}}; done
+}
+
 function listappstoreapps() {
   if [ -z "$1" ]
   then
