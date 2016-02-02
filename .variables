@@ -20,7 +20,12 @@ BULLETTRAIN_NVM_BG=064
 BULLETTRAIN_RBENV_BG=089
 BULLETTRAIN_NVM_PREFIX="node: "
 BULLETTRAIN_RBENV_PREFIX="ruby: "
+BULLETTRAIN_GIT_PREFIX="branch: "
 
 ZSH_THEME="bullet-train"
 
-plugins=(git brew osx sublime rbenv composer common-aliases compleat laravel4 vagrant web-search)
+# export LC_ALL="en_GB.utf8"
+export LC_CTYPE="en_GB.utf8"
+export LANG="en_GB.utf8"
+
+plugins=(git brew rbenv)

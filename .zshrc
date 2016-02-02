@@ -20,6 +20,8 @@ export GICORE=~/Server/get-invited-core/scss/
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # export GEM_PATH=/usr/local/opt/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/
 
+export LANG=en_GB.utf8
+
 # echo $PATH
 
 #
